@@ -1025,6 +1025,16 @@ main {
   display: none !important;
 }
 
+.container.adm-header {
+  max-width: 808px;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.adm-header .header-actions {
+  margin-left: auto;
+}
+
 .adm-wrap {
   padding-block: 28px 64px;
   display: grid;
@@ -1098,10 +1108,6 @@ main {
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-md);
-}
-
-.adm-header {
-  max-width: 808px;
 }
 
 .adm-thumb {
