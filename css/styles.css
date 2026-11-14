@@ -1035,6 +1035,16 @@ main {
   margin-left: auto;
 }
 
+@media (max-width: 768px) {
+  .adm-header > strong {
+    display: none;
+  }
+
+  .adm-header .header-actions {
+    margin-left: auto;
+  }
+}
+
 .adm-wrap {
   padding-block: 28px 64px;
   display: grid;
