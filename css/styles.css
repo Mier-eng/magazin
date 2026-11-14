@@ -1028,10 +1028,10 @@ main {
 .container.adm-header {
   max-width: 808px;
   justify-content: flex-start;
-  gap: 20px;
+  gap: 16px;
 }
 
-.adm-header .header-actions {
+.adm-header > strong {
   margin-left: auto;
 }
 
