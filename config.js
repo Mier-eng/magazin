@@ -18,7 +18,7 @@
     whatsappNumber: '',
     city: 'Сухум',
     cityIn: 'Сухуме',
-    githubRepo: '',
+    githubRepo: 'Mier-eng/magazin',
     siteUrl: '',
     hours: 'Ежедневно с 09:00 до 20:00',
     categories: [
