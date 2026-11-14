@@ -1067,20 +1067,6 @@ main {
   font-size: 0.875rem;
 }
 
-.adm-help {
-  color: var(--ink-secondary);
-  font-size: 0.9375rem;
-}
-
-.adm-help summary {
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.adm-help ol {
-  margin-top: 10px;
-}
-
 .adm-grid {
   display: grid;
   gap: 14px;

@@ -27,12 +27,7 @@
       <div class="container adm-wrap">
         <!-- Вход -->
         <section id="login" class="content-block adm-block">
-          <h1 class="adm-h">Вход для владельца</h1>
-          <p>
-            Покупатели видят только каталог. Изменять товары можно только с
-            личным ключом доступа GitHub (токеном): без него эта страница
-            ничего не делает.
-          </p>
+          <h1 class="adm-h">Вход для админа</h1>
           <div class="field">
             <label class="field-label" for="repo-input">Репозиторий (логин/название)</label>
             <input id="repo-input" class="control" type="text" placeholder="например: ivan/magazin" autocomplete="off" />
@@ -44,15 +39,6 @@
           <div class="adm-row">
             <button id="login-btn" type="button" class="btn btn-primary">Войти</button>
           </div>
-          <details class="adm-help">
-            <summary>Как получить токен (один раз, 2 минуты)</summary>
-            <ol class="clean-list">
-              <li>Зайдите на GitHub → фото профиля → Settings → Developer settings → Personal access tokens → <strong>Fine-grained tokens</strong> → Generate new token.</li>
-              <li>Repository access: <strong>Only select repositories</strong> и выберите только репозиторий магазина.</li>
-              <li>Permissions → Repository permissions → <strong>Contents: Read and write</strong>. Больше ничего не включайте.</li>
-              <li>Срок действия поставьте 90 дней, нажмите Generate и скопируйте токен сюда. Токен хранится только в этой вкладке и пропадает при её закрытии.</li>
-            </ol>
-          </details>
         </section>
 
         <!-- Список товаров -->
@@ -111,7 +97,6 @@
             <button id="cancel-btn" type="button" class="btn btn-secondary">Отмена</button>
           </div>
         </section>
-
         <div id="log" class="notice-inline adm-log" role="status" aria-live="polite" hidden></div>
       </div>
     </main>
