@@ -22,7 +22,9 @@
   --shadow-card: 0 1px 2px rgba(17, 24, 39, 0.04);
   --shadow-hover: 0 10px 24px rgba(17, 24, 39, 0.07);
   --container-max: 1200px;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    "Helvetica Neue", Arial, sans-serif;
   --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -154,7 +156,9 @@ select {
   flex-shrink: 0;
   padding-block: 6px;
   border-bottom: 2px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
+  transition:
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .site-nav a:hover,
@@ -241,7 +245,10 @@ select {
   flex-shrink: 0;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: background-color var(--transition), border-color var(--transition), transform var(--transition);
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
 }
 
 .btn-primary {
@@ -457,7 +464,10 @@ main {
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .cat-tab:hover {
@@ -498,7 +508,10 @@ main {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .product-card:hover {
@@ -1004,7 +1017,6 @@ main {
   margin-top: 16px;
 }
 
-
 /* =========================================================
    Админ-панель (admin.html)
    ========================================================= */
@@ -1026,7 +1038,6 @@ main {
   max-width: 760px;
   margin-inline: auto;
 }
-
 
 .adm-h {
   margin: 0;
@@ -1090,7 +1101,7 @@ main {
 }
 
 .adm-header {
-  max-width: 760px;
+  max-width: 808px;
 }
 
 .adm-thumb {
