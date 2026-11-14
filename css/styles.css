@@ -1089,6 +1089,10 @@ main {
   border-radius: var(--radius-md);
 }
 
+.adm-header {
+  max-width: 760px;
+}
+
 .adm-thumb {
   width: 64px;
   height: 48px;
