@@ -1022,8 +1022,11 @@ main {
 .adm-block {
   display: grid;
   gap: 14px;
+  width: 100%;
   max-width: 760px;
+  margin-inline: auto;
 }
+
 
 .adm-h {
   margin: 0;
