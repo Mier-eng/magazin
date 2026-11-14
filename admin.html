@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'none';"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Управление товарами</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand-link">← На сайт</a>
+        <strong>Управление товарами</strong>
+        <div class="header-actions">
+          <button id="logout-btn" type="button" class="btn btn-secondary btn-sm" hidden>Выйти</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container adm-wrap">
+        <!-- Вход -->
+        <section id="login" class="content-block adm-block">
+          <h1 class="adm-h">Вход для владельца</h1>
+          <p>
+            Покупатели видят только каталог. Изменять товары можно только с
+            личным ключом доступа GitHub (токеном): без него эта страница
+            ничего не делает.
+          </p>
+          <div class="field">
+            <label class="field-label" for="repo-input">Репозиторий (логин/название)</label>
+            <input id="repo-input" class="control" type="text" placeholder="например: ivan/magazin" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="token-input">Токен доступа GitHub</label>
+            <input id="token-input" class="control" type="password" autocomplete="off" placeholder="github_pat_..." />
+          </div>
+          <div class="adm-row">
+            <button id="login-btn" type="button" class="btn btn-primary">Войти</button>
+          </div>
+          <details class="adm-help">
+            <summary>Как получить токен (один раз, 2 минуты)</summary>
+            <ol class="clean-list">
+              <li>Зайдите на GitHub → фото профиля → Settings → Developer settings → Personal access tokens → <strong>Fine-grained tokens</strong> → Generate new token.</li>
+              <li>Repository access: <strong>Only select repositories</strong> и выберите только репозиторий магазина.</li>
+              <li>Permissions → Repository permissions → <strong>Contents: Read and write</strong>. Больше ничего не включайте.</li>
+              <li>Срок действия поставьте 90 дней, нажмите Generate и скопируйте токен сюда. Токен хранится только в этой вкладке и пропадает при её закрытии.</li>
+            </ol>
+          </details>
+        </section>
+
+        <!-- Список товаров -->
+        <section id="panel" hidden>
+          <div class="adm-toolbar">
+            <button id="add-btn" type="button" class="btn btn-primary">+ Добавить товар</button>
+            <button id="rebuild-btn" type="button" class="btn btn-secondary">Обновить страницы сайта</button>
+            <span id="repo-info" class="adm-muted"></span>
+          </div>
+          <div id="product-list" class="adm-list"></div>
+          <p id="list-empty" class="adm-muted" hidden>Товаров пока нет. Нажмите «Добавить товар».</p>
+        </section>
+
+        <!-- Редактор товара -->
+        <section id="editor" class="content-block adm-block" hidden>
+          <h2 id="editor-title" class="adm-h">Новый товар</h2>
+          <div class="field">
+            <label class="field-label" for="f-title">Название</label>
+            <input id="f-title" class="control" type="text" maxlength="120" />
+          </div>
+          <div class="adm-grid">
+            <div class="field">
+              <label class="field-label" for="f-category">Категория</label>
+              <select id="f-category" class="control"></select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-price">Цена, ₽</label>
+              <input id="f-price" class="control" type="number" min="0" step="1" />
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-condition">Состояние</label>
+              <select id="f-condition" class="control">
+                <option value="новое">Новое</option>
+                <option value="б/у">Б/у</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-status">Статус</label>
+              <select id="f-status" class="control">
+                <option value="в наличии">В наличии</option>
+                <option value="продано">Продано</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="f-desc">Описание</label>
+            <textarea id="f-desc" class="control adm-textarea" maxlength="3000"></textarea>
+          </div>
+          <div class="field">
+            <span class="field-label">Фото (до 8 штук, сжимаются автоматически)</span>
+            <div id="photo-grid" class="adm-photos"></div>
+            <input id="f-files" class="control" type="file" accept="image/*" multiple />
+          </div>
+          <div class="adm-row">
+            <button id="save-btn" type="button" class="btn btn-primary">Сохранить и опубликовать</button>
+            <button id="cancel-btn" type="button" class="btn btn-secondary">Отмена</button>
+          </div>
+        </section>
+
+        <div id="log" class="notice-inline adm-log" role="status" aria-live="polite" hidden></div>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="js/pagegen.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
