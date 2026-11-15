@@ -163,6 +163,10 @@
       ? `<img id="gallery-main-img" src="../${escapeHtml(primaryPhoto.replace(/^\/+/, ''))}" alt="${escapeHtml(`${title} — ${category}, ${conditionLabel.toLowerCase()}`)}" loading="eager" decoding="async" width="800" height="600" data-fallback="true" />`
       : `<div class="img-fallback">${escapeHtml(title)}</div>`;
 
+    const waDefaultMessage = encodeURIComponent(
+      `Здравствуйте! Меня интересует товар: ${title} (${pageUrl})`
+    );
+
     return `<!doctype html>
   <html lang="ru">
     <head>
@@ -295,7 +299,7 @@
                 <div class="pdp-cta-group">
                   <a
                     id="pdp-wa-btn"
-                    href="https://wa.me/"
+                    href="https://wa.me/?text=${waDefaultMessage}"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-product-title="${escapeHtml(title)}"
