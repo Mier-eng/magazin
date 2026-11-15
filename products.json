@@ -82,19 +82,5 @@
     ],
     "createdAt": "2026-11-01",
     "status": "продано"
-  },
-  {
-    "id": 7,
-    "slug": "nabor-tarelok-na-6-person",
-    "title": "Набор тарелок на 6 персон",
-    "category": "Бытовые товары",
-    "price": 5000,
-    "condition": "новое",
-    "description": "",
-    "photos": [
-      "images/nabor-tarelok-na-6-person-mwhmyywg0.jpg"
-    ],
-    "createdAt": "2026-11-15",
-    "status": "в наличии"
   }
 ]
