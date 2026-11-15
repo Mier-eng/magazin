@@ -1,5 +1,4 @@
 User-agent: *
-  Allow: /
+Allow: /
 
-  Sitemap: https://Mier-eng.github.io/magazin/sitemap.xml
-  
+Sitemap: https://Mier-eng.github.io/magazin/sitemap.xml

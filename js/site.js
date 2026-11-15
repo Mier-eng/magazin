@@ -32,8 +32,8 @@
     if (digits.length < 10) {
       return null;
     }
-    var text = encodeURIComponent(String(message || 'Здравствуйте!'));
-    return 'https://wa.me/' + digits + '?text=' + text;
+    // Без заготовленного текста: покупатель сам пишет первое сообщение.
+    return 'https://wa.me/' + digits;
   }
 
   function showNotice(targetId, text) {
