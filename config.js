@@ -15,7 +15,7 @@
    */
   window.SITE_CONFIG = Object.freeze({
     storeName: 'Дом и Мастерская',
-    whatsappNumber: '794091098999',
+    whatsappNumber: '79409109899',
     city: 'Сухум',
     cityIn: 'Сухуме',
     githubRepo: 'Mier-eng/magazin',
