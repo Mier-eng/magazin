@@ -73,6 +73,7 @@
         opt.textContent = cat;
         elements.categorySelect.appendChild(opt);
       });
+      elements.categorySelect.value = state.category;
     }
 
     if (elements.categoryTabs) {
@@ -321,13 +322,17 @@
     }
   }
 
-  function loadProducts() {
-    if (elements.status) {
+  var lastLoad = 0;
+
+  // silent = true: обновить список в фоне, без надписи «Загрузка…» и без сообщения об ошибке
+  function loadProducts(silent) {
+    if (!silent && elements.status) {
       elements.status.textContent = 'Загрузка каталога…';
       elements.status.hidden = false;
     }
 
-    fetch('products.json')
+    // Уникальный адрес и no-store: браузер и кэш GitHub Pages (до 10 минут) не подсунут старый список.
+    fetch('products.json?t=' + Date.now(), { cache: 'no-store' })
       .then(function (response) {
         if (!response.ok) {
           throw new Error('HTTP ' + response.status);
@@ -340,10 +345,12 @@
         }
         state.products = data.map(normalizeProduct).filter(Boolean);
         populateCategories(state.products);
+        lastLoad = Date.now();
         if (elements.status) elements.status.hidden = true;
         render();
       })
       .catch(function () {
+        if (silent) return;
         if (elements.status) {
           elements.status.textContent =
             'Не удалось загрузить каталог товаров. Если вы открыли файл напрямую с диска, запустите локальный сервер или откройте сайт на GitHub Pages.';
@@ -369,7 +376,15 @@
     elements.emptyResetBtn = document.getElementById('empty-reset');
 
     bindEvents();
-    loadProducts();
+    loadProducts(false);
+
+    // Вернулись на вкладку (особенно на телефоне) или страница восстановлена из памяти: обновляем список.
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible' && Date.now() - lastLoad > 30000) loadProducts(true);
+    });
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) loadProducts(true);
+    });
   }
 
   if (document.readyState === 'loading') {
